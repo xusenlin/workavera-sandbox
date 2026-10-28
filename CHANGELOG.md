@@ -11,6 +11,8 @@ Server-side changes are recorded separately, in the
 
 ## [Unreleased]
 
+## [1] - 2026-10-28
+
 ### Added
 
 - The first sandbox image: Ubuntu 26.04 with Node.js 24, npm, and pnpm;
@@ -21,4 +23,5 @@ Server-side changes are recorded separately, in the
   `/workspace`, with passwordless `sudo`. Published for `linux/amd64` and
   `linux/arm64`.
 
-[Unreleased]: https://github.com/xusenlin/workavera-sandbox/commits/main
+[Unreleased]: https://github.com/xusenlin/workavera-sandbox/compare/v1...HEAD
+[1]: https://github.com/xusenlin/workavera-sandbox/releases/tag/v1
