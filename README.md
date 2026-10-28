@@ -47,8 +47,13 @@ matching change in Workavera, released together with the new tag:
   there, and Docker copies this ownership into a new volume.
 - `bash`, `procps` (`ps`, `pkill`), and `setsid`, which Workavera uses to run
   commands in their own process group and to stop them.
-- The tools and fonts in the table above, which Workavera lists to the
-  assistant in its system prompt.
+- The `org.workavera.sandbox.tools` label, a short English description of the
+  tools and fonts in the table above. Workavera reads it with
+  `docker image inspect`, without starting a container, and passes it to the
+  assistant in its system prompt, so it must change whenever the installed
+  tools do. An image built elsewhere for Workavera can set the same label;
+  without it, Workavera tells the assistant to check a tool before relying on
+  it.
 
 Workavera sets the entrypoint, user, working directory, network, and limits
 itself when it creates a container, so the image defines none of them beyond

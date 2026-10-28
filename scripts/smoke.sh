@@ -41,6 +41,23 @@ check() {
   rm -f "${stderr}"
 }
 
+# Workavera passes this label to the assistant, so it has to name what the
+# checks below find installed.
+tools_label="$(docker image inspect --format '{{index .Config.Labels "org.workavera.sandbox.tools"}}' "${image}")"
+missing_from_label=""
+for item in "Node.js 24" pnpm /opt/venv uv numpy pandas matplotlib openpyxl git ripgrep "Noto Sans CJK"; do
+  [[ "${tools_label}" == *"${item}"* ]] || missing_from_label+=" ${item}"
+done
+if [[ -z "${tools_label}" ]]; then
+  echo "FAIL  org.workavera.sandbox.tools label is missing"
+  failures=$((failures + 1))
+elif [[ -n "${missing_from_label}" ]]; then
+  echo "FAIL  org.workavera.sandbox.tools label omits:${missing_from_label}"
+  failures=$((failures + 1))
+else
+  echo "ok    org.workavera.sandbox.tools label names the installed tools"
+fi
+
 check "runs as workavera with UID 1000" '[ "$(id -un):$(id -u)" = workavera:1000 ] && id -un'
 check "starts in a writable /workspace" '[ "$PWD" = /workspace ] && touch .smoke && rm .smoke && pwd'
 check "login shell exits cleanly" 'exit 0'

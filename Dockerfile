@@ -23,6 +23,10 @@ LABEL org.opencontainers.image.title="workavera-sandbox" \
       org.opencontainers.image.source="https://github.com/xusenlin/workavera-sandbox" \
       org.opencontainers.image.licenses="Apache-2.0"
 
+# Workavera reads this label with `docker image inspect` and passes it to the
+# assistant in its system prompt, so it must match what this file installs.
+LABEL org.workavera.sandbox.tools="Node.js 24 with npm and pnpm; Python 3 in a venv at /opt/venv (pip and uv install into it) with numpy, pandas, matplotlib, and openpyxl; git, curl, jq, ripgrep, zip, unzip, xz, zstd, and file; Noto Sans CJK fonts, which matplotlib uses by default (name Noto Sans CJK SC elsewhere for Chinese text)."
+
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ENV LANG=C.UTF-8 \

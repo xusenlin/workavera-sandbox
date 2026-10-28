@@ -11,6 +11,12 @@ Server-side changes are recorded separately, in the
 
 ## [Unreleased]
 
+### Added
+
+- The `org.workavera.sandbox.tools` label describes the installed tools and
+  fonts, so Workavera can tell the assistant what the sandbox offers, and an
+  image built elsewhere can describe its own.
+
 ## [1] - 2026-10-28
 
 ### Added
