@@ -1,0 +1,40 @@
+version: "3"
+
+vars:
+  IMAGE: ghcr.io/xusenlin/workavera-sandbox
+  VERSION:
+    sh: cat VERSION
+
+tasks:
+  default:
+    desc: List available tasks
+    cmds:
+      - task --list
+    silent: true
+
+  build:
+    desc: Build the image for this machine's platform as <image>:<version>
+    cmds:
+      - docker build --tag {{.IMAGE}}:{{.VERSION}} .
+
+  test:
+    desc: Build the image and run the smoke test against it
+    deps:
+      - build
+    cmds:
+      - scripts/smoke.sh {{.IMAGE}}:{{.VERSION}}
+
+  push:
+    desc: Build for linux/amd64 and linux/arm64 and push <image>:<version>
+    preconditions:
+      # A published tag is never rebuilt: Workavera pins tags, and a user
+      # who already pulled one must keep getting the same image.
+      - sh: "! docker buildx imagetools inspect {{.IMAGE}}:{{.VERSION}} >/dev/null 2>&1"
+        msg: "{{.IMAGE}}:{{.VERSION}} is already published; raise VERSION for a new image."
+    cmds:
+      - >-
+        docker buildx build
+        --platform linux/amd64,linux/arm64
+        --tag {{.IMAGE}}:{{.VERSION}}
+        --push
+        .
