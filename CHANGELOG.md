@@ -11,6 +11,8 @@ Server-side changes are recorded separately, in the
 
 ## [Unreleased]
 
+## [2] - 2026-10-28
+
 ### Added
 
 - The `org.workavera.sandbox.tools` label describes the installed tools and
@@ -29,5 +31,6 @@ Server-side changes are recorded separately, in the
   `/workspace`, with passwordless `sudo`. Published for `linux/amd64` and
   `linux/arm64`.
 
-[Unreleased]: https://github.com/xusenlin/workavera-sandbox/compare/v1...HEAD
+[Unreleased]: https://github.com/xusenlin/workavera-sandbox/compare/v2...HEAD
+[2]: https://github.com/xusenlin/workavera-sandbox/compare/v1...v2
 [1]: https://github.com/xusenlin/workavera-sandbox/releases/tag/v1
