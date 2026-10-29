@@ -1,5 +1,7 @@
 # Workavera Sandbox
 
+[简体中文](./README.zh-CN.md)
+
 The container image behind the sandbox of
 [Workavera](https://github.com/xusenlin/workavera), a self-hosted AI team
 workspace. When a user turns the sandbox on, Workavera starts a container named
