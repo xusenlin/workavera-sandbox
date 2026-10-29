@@ -11,6 +11,16 @@ Server-side changes are recorded separately, in the
 
 ## [Unreleased]
 
+### Added
+
+- Document, OCR, and data tools: pandoc, Typst, Poppler, and qpdf for
+  converting and typesetting documents and handling PDFs; Tesseract with
+  Simplified Chinese, Traditional Chinese, and English, and OCRmyPDF to add
+  a text layer to scanned PDFs; the DuckDB CLI and Graphviz; and DuckDB,
+  python-docx, python-pptx, and pypdf in `/opt/venv`. The
+  `org.workavera.sandbox.tools` label names them, and the smoke test checks
+  a Chinese round trip from Typst through OCR.
+
 ## [2] - 2026-10-28
 
 ### Added

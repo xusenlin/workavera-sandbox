@@ -20,7 +20,10 @@ Each version is a whole number, published once for `linux/amd64` and
 | --- | --- |
 | Base | Ubuntu 26.04 LTS, `LANG=C.UTF-8`, `TZ=Etc/UTC` |
 | Node.js | Node.js 24 LTS, npm, and pnpm |
-| Python | Python 3 in a virtual environment at `/opt/venv`, with uv, NumPy, pandas, matplotlib, and openpyxl |
+| Python | Python 3 in a virtual environment at `/opt/venv`, with uv, NumPy, pandas, DuckDB, matplotlib, openpyxl, python-docx, python-pptx, and pypdf |
+| Documents | pandoc (Markdown, HTML, docx, and epub conversion), Typst (PDF typesetting), Poppler (`pdftotext`, `pdftoppm`, `pdfimages`), and qpdf |
+| OCR | Tesseract with `chi_sim`, `chi_tra`, and `eng`, and OCRmyPDF to add a text layer to scanned PDFs |
+| Data and diagrams | The DuckDB CLI for SQL over CSV, Parquet, and JSON, and Graphviz (`dot`) |
 | Command-line tools | git, curl, ca-certificates, jq, ripgrep, unzip, zip, xz, zstd, file, procps, sudo |
 | Fonts | Noto Sans CJK (`fonts-noto-cjk`), the default font of matplotlib |
 
@@ -28,8 +31,12 @@ Each version is a whole number, published once for `linux/amd64` and
   `python`, `pip`, and `uv pip` install packages without `sudo` and without
   running into Ubuntu's PEP 668 block on the system Python.
 - npm installs global packages under `~/.local`, also without `sudo`.
-- The NumPy, pandas, matplotlib, and openpyxl data stack is preinstalled
-  because a sandbox can be offline, where nothing can be installed.
+- The data, document, and OCR tools are preinstalled because a sandbox can be
+  offline, where nothing can be installed.
+- Typst and the DuckDB CLI come from their release archives, checked against
+  the SHA-256 digests GitHub publishes, like Node.js and uv.
+- LibreOffice, a browser, and ffmpeg are left out to keep the image small;
+  install them with `sudo apt-get` when a task needs them.
 - matplotlib defaults to Noto Sans CJK SC, so Chinese text in charts renders
   instead of showing boxes.
 - Go is not included; install it with `sudo apt-get` when needed.
@@ -71,7 +78,9 @@ task push    # build for linux/amd64 and linux/arm64 and push the tag
 
 `task test` starts a container with the same arguments Workavera uses, without
 network access, and checks the user, the workspace, a clean login shell, every
-advertised tool, and a matplotlib chart with a Chinese title.
+advertised tool, a matplotlib chart with a Chinese title, a Typst PDF in
+Chinese, OCR of that text by Tesseract and OCRmyPDF, a DuckDB query, a pandoc
+docx, and a Graphviz drawing.
 
 A locally built image carries the same name as the published one, so a
 Workavera on the same machine uses it without pulling anything. That is the way
