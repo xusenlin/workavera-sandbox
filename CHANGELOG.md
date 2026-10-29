@@ -11,6 +11,8 @@ Server-side changes are recorded separately, in the
 
 ## [Unreleased]
 
+## [3] - 2026-10-29
+
 ### Added
 
 - Document, OCR, and data tools: pandoc, Typst, Poppler, and qpdf for
@@ -41,6 +43,7 @@ Server-side changes are recorded separately, in the
   `/workspace`, with passwordless `sudo`. Published for `linux/amd64` and
   `linux/arm64`.
 
-[Unreleased]: https://github.com/xusenlin/workavera-sandbox/compare/v2...HEAD
+[Unreleased]: https://github.com/xusenlin/workavera-sandbox/compare/v3...HEAD
+[3]: https://github.com/xusenlin/workavera-sandbox/compare/v2...v3
 [2]: https://github.com/xusenlin/workavera-sandbox/compare/v1...v2
 [1]: https://github.com/xusenlin/workavera-sandbox/releases/tag/v1
