@@ -11,6 +11,8 @@ Server-side changes are recorded separately, in the
 
 ## [Unreleased]
 
+## [4] - 2026-11-20
+
 ### Added
 
 - `anydoc` CLI (`@firecrawl/anydoc` with prebuilt native Linux `amd64`/`arm64`
@@ -50,7 +52,8 @@ Server-side changes are recorded separately, in the
   `/workspace`, with passwordless `sudo`. Published for `linux/amd64` and
   `linux/arm64`.
 
-[Unreleased]: https://github.com/xusenlin/workavera-sandbox/compare/v3...HEAD
+[Unreleased]: https://github.com/xusenlin/workavera-sandbox/compare/v4...HEAD
+[4]: https://github.com/xusenlin/workavera-sandbox/compare/v3...v4
 [3]: https://github.com/xusenlin/workavera-sandbox/compare/v2...v3
 [2]: https://github.com/xusenlin/workavera-sandbox/compare/v1...v2
 [1]: https://github.com/xusenlin/workavera-sandbox/releases/tag/v1
