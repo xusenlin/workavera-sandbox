@@ -143,6 +143,15 @@ RUN set -eux; \
   rm -rf "${uv_file}" /tmp/uv /usr/local/sbin/untar; \
   uv --version
 
+# Native anydoc CLI for on-demand document-to-Markdown conversion (PDF, Office,
+# OpenDocument, RTF, EPUB, CSV). Installed globally under /usr/local so it is
+# on PATH for every user and works offline.
+ARG ANYDOC_VERSION=0.2.5
+RUN set -eux; \
+  npm install -g "@firecrawl/anydoc@${ANYDOC_VERSION}"; \
+  npm cache clean --force; \
+  anydoc --version
+
 # The sandbox user. Ubuntu images ship an `ubuntu` user on UID 1000; it is
 # replaced so Workavera's user owns that UID.
 RUN set -eux; \
@@ -192,4 +201,4 @@ WORKDIR /workspace
 # Workavera reads this label with `docker image inspect` and passes it to the
 # assistant in its system prompt, so it must match what this file installs.
 # It comes last so that editing it does not rebuild the layers above.
-LABEL org.workavera.sandbox.tools="Node.js 24 with npm and pnpm; Python 3 in a venv at /opt/venv (pip and uv install into it) with numpy, pandas, duckdb, matplotlib, openpyxl, python-docx, python-pptx, and pypdf; documents: pandoc (Markdown, HTML, docx, epub conversion), typst (PDF typesetting), poppler-utils (pdftotext, pdftoppm, pdfimages), and qpdf; OCR: tesseract with chi_sim, chi_tra, and eng, and ocrmypdf to add a text layer to scanned PDFs; duckdb CLI for SQL over CSV, Parquet, and JSON; graphviz (dot); git, curl, jq, ripgrep, zip, unzip, xz, zstd, and file; Noto Sans CJK fonts, which matplotlib uses by default (name Noto Sans CJK SC elsewhere for Chinese text)."
+LABEL org.workavera.sandbox.tools="Node.js 24 with npm and pnpm; Python 3 in a venv at /opt/venv (pip and uv install into it) with numpy, pandas, duckdb, matplotlib, openpyxl, python-docx, python-pptx, and pypdf; documents: anydoc (fast document-to-Markdown conversion for PDF, Office, OpenDocument, RTF, EPUB, and CSV), pandoc (Markdown, HTML, docx, epub conversion), typst (PDF typesetting), poppler-utils (pdftotext, pdftoppm, pdfimages), and qpdf; OCR: tesseract with chi_sim, chi_tra, and eng, and ocrmypdf to add a text layer to scanned PDFs; duckdb CLI for SQL over CSV, Parquet, and JSON; graphviz (dot); git, curl, jq, ripgrep, zip, unzip, xz, zstd, and file; Noto Sans CJK fonts, which matplotlib uses by default (name Noto Sans CJK SC elsewhere for Chinese text)."

@@ -7,7 +7,7 @@ The container image behind the sandbox of
 workspace. When a user turns the sandbox on, Workavera starts a container named
 `workavera-<user ID>` from this image, and the Chat assistant runs commands and
 works with files inside it. The product design is in the
-[Sandbox PRD](https://github.com/xusenlin/workavera/blob/main/doc/sandbox-prd.md).
+[Sandbox PRD](https://github.com/xusenlin/workavera/blob/main/doc/v0.0.1-v0.2.x/sandbox-prd.md).
 
 ```text
 ghcr.io/xusenlin/workavera-sandbox:<version>
@@ -23,7 +23,7 @@ Each version is a whole number, published once for `linux/amd64` and
 | Base | Ubuntu 26.04 LTS, `LANG=C.UTF-8`, `TZ=Etc/UTC` |
 | Node.js | Node.js 24 LTS, npm, and pnpm |
 | Python | Python 3 in a virtual environment at `/opt/venv`, with uv, NumPy, pandas, DuckDB, matplotlib, openpyxl, python-docx, python-pptx, and pypdf |
-| Documents | pandoc (Markdown, HTML, docx, and epub conversion), Typst (PDF typesetting), Poppler (`pdftotext`, `pdftoppm`, `pdfimages`), and qpdf |
+| Documents | anydoc (fast Markdown conversion for PDF, Office, OpenDocument, RTF, EPUB, and CSV), pandoc (Markdown, HTML, docx, and epub conversion), Typst (PDF typesetting), Poppler (`pdftotext`, `pdftoppm`, `pdfimages`), and qpdf |
 | OCR | Tesseract with `chi_sim`, `chi_tra`, and `eng`, and OCRmyPDF to add a text layer to scanned PDFs |
 | Data and diagrams | The DuckDB CLI for SQL over CSV, Parquet, and JSON, and Graphviz (`dot`) |
 | Command-line tools | git, curl, ca-certificates, jq, ripgrep, unzip, zip, xz, zstd, file, procps, sudo |

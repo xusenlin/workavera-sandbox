@@ -2,7 +2,7 @@
 
 [English](./README.md)
 
-[Workavera](https://github.com/xusenlin/workavera)（一个自托管的 AI 团队工作区）沙箱所用的容器镜像。用户开启沙箱后，Workavera 用这个镜像启动一个名为 `workavera-<用户 ID>` 的容器，Chat 中的助手在其中执行命令、处理文件。产品设计见 [Sandbox PRD](https://github.com/xusenlin/workavera/blob/main/doc/sandbox-prd.zh-CN.md)。
+[Workavera](https://github.com/xusenlin/workavera)（一个自托管的 AI 团队工作区）沙箱所用的容器镜像。用户开启沙箱后，Workavera 用这个镜像启动一个名为 `workavera-<用户 ID>` 的容器，Chat 中的助手在其中执行命令、处理文件。产品设计见 [Sandbox PRD](https://github.com/xusenlin/workavera/blob/main/doc/v0.0.1-v0.2.x/sandbox-prd.zh-CN.md)。
 
 ```text
 ghcr.io/xusenlin/workavera-sandbox:<版本>
@@ -17,7 +17,7 @@ ghcr.io/xusenlin/workavera-sandbox:<版本>
 | 基础 | Ubuntu 26.04 LTS，`LANG=C.UTF-8`，`TZ=Etc/UTC` |
 | Node.js | Node.js 24 LTS、npm 和 pnpm |
 | Python | 位于 `/opt/venv` 虚拟环境中的 Python 3，带 uv、NumPy、pandas、DuckDB、matplotlib、openpyxl、python-docx、python-pptx 和 pypdf |
-| 文档 | pandoc（Markdown、HTML、docx、epub 互相转换）、Typst（PDF 排版）、Poppler（`pdftotext`、`pdftoppm`、`pdfimages`）和 qpdf |
+| 文档 | anydoc（PDF、Office、OpenDocument、RTF、EPUB、CSV 快速转 Markdown）、pandoc（Markdown、HTML、docx、epub 互相转换）、Typst（PDF 排版）、Poppler（`pdftotext`、`pdftoppm`、`pdfimages`）和 qpdf |
 | OCR | Tesseract（`chi_sim`、`chi_tra`、`eng`），以及给扫描版 PDF 加文字层的 OCRmyPDF |
 | 数据与图表 | DuckDB 命令行（用 SQL 查询 CSV、Parquet、JSON）和 Graphviz（`dot`） |
 | 命令行工具 | git、curl、ca-certificates、jq、ripgrep、unzip、zip、xz、zstd、file、procps、sudo |

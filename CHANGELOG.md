@@ -11,6 +11,13 @@ Server-side changes are recorded separately, in the
 
 ## [Unreleased]
 
+### Added
+
+- `anydoc` CLI (`@firecrawl/anydoc` with prebuilt native Linux `amd64`/`arm64`
+  bindings) for on-demand document-to-Markdown conversion of PDF, Office,
+  OpenDocument, RTF, EPUB, and CSV files offline, declared in the
+  `org.workavera.sandbox.tools` label and verified by the smoke test.
+
 ## [3] - 2026-10-29
 
 ### Added
